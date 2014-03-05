@@ -1,0 +1,40 @@
+ <h1 id="name" >
+		<div id="top">Fake Twitter</div>
+ </h1>
+ <hr>
+ <body id="blah">
+ 	
+ 
+ <% names = [ "new_user", "new_post"] %>
+	
+
+	<form method="POST" action="/sign_in">
+		<p>
+		 <label for="username">Username</label>
+		 </p>
+		 <p>
+		 <input type="text" name="username">
+	 	 </p>
+	 	 <p>
+	 	 <label for="password">Password</label>
+	 	 </p>
+	 	 <p>
+	 	 <input type="password" name="password">
+	 	 </p>
+	 	 <p>
+	 	 <input type="submit">
+	 	 </p>
+    </form>
+
+
+	<b>
+		<% names.each do |name| %>
+			 <p>
+   			 	<a  
+   			 	href="/<%= name%>" class="btn btn-primary">  <%= name  %> </a>
+   			</p>
+   		<% end %>
+
+    </b>
+
+     </body>
