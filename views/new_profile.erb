@@ -1,0 +1,30 @@
+<h1 id="top">Write your Profile</h1>
+<body id="blah">
+<hr>
+
+<form method="Post" action="/create_profile">
+	<input type="hidden" name="[profile]user_id" value="<%=current_user.id%>">
+	<p>
+		<label for="location">location</label>
+	</p>
+	<p>
+		<input type="text" name="[profile]location" id="location" placeholder="Where do you live?">
+	</p>
+	<p>
+		<label for="age">age</label>
+	</p>
+	<p>
+		<input type="number" name="[profile]age" id="age" placeholder="How old are you?">
+	</p>
+	<p>
+		<label for="life_story">Something about you</label>
+	</p>
+	<p>
+		<textarea name="[profile]life_story" id="life_story" placeholder="tell us about yourself..."  cols="30" rows="5"></textarea>
+	</p>
+	<p>
+		<input type="submit" >
+	</p>
+</form>
+
+<a href="/">home</a>

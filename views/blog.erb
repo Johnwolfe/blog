@@ -1,0 +1,39 @@
+<h1 id="name">
+	<div id="top">Posts for 
+	<%=current_user.email %></div>
+	<hr>
+</h1>
+<body id ="blah">
+	<a href="/new_post">     Write a new post</a>
+	<br>
+	<% if current_user.profile == nil %>
+	<a href="/new_profile">     Why don't you write a profile?</a>
+	<% end %>
+	<br>
+	<a href="/">home</a>
+	<br>
+<%	current_user.posts.each do |posts|  %>
+	<li id="centered">
+		<b>
+			<%= posts.title  %>
+		</b>
+		<p>
+			<%=posts.body %>
+		</p>
+	</li>
+
+	<% end %>
+
+	<% if current_user.profile != nil %>
+	<div id="centered">
+	<h2>About <%=current_user.email%> </h2>
+	<p>
+	<%=	current_user.profile.life_story %>
+    </p>
+	<p> <%=current_user.email%> is <%=current_user.profile.age%> years old</p>
+
+	<p> <%=current_user.email%> lives in <%=current_user.profile.location%> </p>
+	
+	<% end %>
+	</div>
+</body>
