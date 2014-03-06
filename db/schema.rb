@@ -10,12 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140228011150) do
+ActiveRecord::Schema.define(version: 20140305022335) do
+
+  create_table "followers", force: true do |t|
+    t.integer "following"
+    t.integer "follower"
+  end
 
   create_table "posts", force: true do |t|
-    t.integer "user_id"
-    t.string  "title"
-    t.string  "body"
+    t.integer  "user_id"
+    t.string   "title"
+    t.string   "body"
+    t.datetime "created_at"
   end
 
   create_table "profiles", force: true do |t|

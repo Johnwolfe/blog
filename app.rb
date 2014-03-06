@@ -64,6 +64,7 @@ post '/create_user' do
 end    
 
 get '/new_user' do
+ 
   erb :new_user
 end 
 
@@ -72,7 +73,12 @@ get '/blog' do
 end
 
 get "/new_post"  do
-  erb :new_post
+  if  session[:user_id] == nil
+      flash[:error] = "You must first create a user or login!"
+      redirect to ("/")
+  else
+    erb :new_post
+  end
 end  
 
 post "/create_post" do 
@@ -91,23 +97,42 @@ post "/create_post" do
    end 
 end   
 
-get "/new_profile" do
-  erb :new_profile
+  get "/new_profile" do
+    if  session[:user_id] == nil
+      flash[:error] = "You must first create a user or login!"
+      redirect to ("/")
+    else
+
+      erb :new_profile
+   end 
  end 
 
 
 post "/create_profile" do 
-  if params[:profile][:location] && params[:profile][:life_story] && params[:profile][:age]
+  if current_user.id != nil
+   if params[:profile][:location] && params[:profile][:life_story] && params[:profile][:age]
 
-    @profile = Profile.create(params[:profile])
+      @profile = Profile.create(params[:profile])
 
-    if @profile
-      redirect to("/blog")
-    else
-      redirect to("/new_profile")
-    end  
+      if @profile
+        redirect to("/blog")
+      else
+        redirect to("/new_profile")
+      end  
 
-    else
-      redirect to("/new_profile")  
-   end 
+      else
+        redirect to("/new_profile")  
+    end 
+  else   
+    flash[:error] = "You must first create a user!"
+
+    redirect to ("/create_profile")
+  end  
 end   
+
+
+
+
+
+
+

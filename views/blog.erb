@@ -1,5 +1,7 @@
-<h1 id="name">
-	<div id="top">Posts for 
+<h1 id="name">  
+	<div id="top">
+		<p ><a href="/">Fake Twitter</a></p>
+		Posts for 
 	<%=current_user.email %></div>
 	<hr>
 </h1>
@@ -12,28 +14,69 @@
 	<br>
 	<a href="/">home</a>
 	<br>
-<%	current_user.posts.each do |posts|  %>
-	<li id="centered">
-		<b>
-			<%= posts.title  %>
-		</b>
-		<p>
-			<%=posts.body %>
-		</p>
-	</li>
+	<%	current_user.posts.order("created_at DESC").each do |posts|  %>
+		<li id="centered">
+			<b>
+				<%= posts.title  %>
+			</b>
+			<p>
+				<%=posts.body %>
+			</p>
+			<p>
+				<small>
+					<%=posts.created_at.strftime(" %m/%d/%Y") %>
+				</small>
+			</p>
+		</li>
 
 	<% end %>
 
 	<% if current_user.profile != nil %>
 	<div id="centered">
-	<h2>About <%=current_user.email%> </h2>
-	<p>
-	<%=	current_user.profile.life_story %>
-    </p>
-	<p> <%=current_user.email%> is <%=current_user.profile.age%> years old</p>
+		<h2>About <%=current_user.email%> </h2>
+		<p>
+			<%=	current_user.profile.life_story %>
+	    </p>
+		<p> <%=current_user.email%> is <%=current_user.profile.age%> years old</p>
 
-	<p> <%=current_user.email%> lives in <%=current_user.profile.location%> </p>
-	
-	<% end %>
+		<p> <%=current_user.email%> lives in <%=current_user.profile.location%>
+	    </p>
+		
+		<% end %>
 	</div>
+
+	<%	all_users = User.first %>
+	<%  last_user = User.last.id %>
+	<% person = 1 %>
+	<% while all_users.id < last_user %>
+	<p> All posts by <%= all_users.email %>
+	</p>	
+		<%	all_users.posts.each do |posts|  %>
+			<%= all_users.id %>
+			<li id="centered">
+				<b>
+					<%= posts.title  %>
+				</b>
+				<p>
+					<%=posts.body %>
+				</p>
+				<p>
+					<small>
+						<%=posts.created_at.strftime(" %m/%d/%Y") 
+						%>
+					</small>
+				</p>
+			</li>
+		<% end %>
+		
+		
+		<% if all_users.id < last_user %>
+			<% all_users = User.find(person) %>
+			<%	person += 1 %>
+		<%end %>
+		
+	<%end%>
+
 </body>
+
+

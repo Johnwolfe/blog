@@ -4,8 +4,15 @@
  <hr>
  <body id="blah">
  	
+  <% if  session[:user_id] = nil %>
+ 		
+ 		 <% names =[ "new_user"] %>
  
- <% names = [ "new_user", "new_post"] %>
+  <% else %>
+ 
+ 		<% names = [ "new_user", "new_post"] %>
+  <% end %>
+
 	
 
 	<form method="POST" action="/sign_in">
@@ -13,20 +20,20 @@
 		 <label for="username">Username</label>
 		 </p>
 		 <p>
-		 <input type="text" name="username">
+		 <input type="text" name="username" required>
 	 	 </p>
 	 	 <p>
 	 	 <label for="password">Password</label>
 	 	 </p>
 	 	 <p>
-	 	 <input type="password" name="password">
+	 	 <input type="password" name="password" required>
 	 	 </p>
 	 	 <p>
 	 	 <input type="submit">
 	 	 </p>
     </form>
 
-
+	
 	<b>
 		<% names.each do |name| %>
 			 <p>

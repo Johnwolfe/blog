@@ -1,4 +1,10 @@
-<h1 id="top">New User</h1>
+<h1 id="name">  
+	<div id="top">
+		<p ><a href="/">Fake Twitter</a></p>
+
+		New User
+	</div>	
+</h1>
 <body id="blah">
 	
 
@@ -7,10 +13,10 @@
   
 
   <label>email</label>
-  <input type="text" name="email">
+  <input type="text" name="email" required>
 	
   <label>password</label>
-  <input type="text" name="password">
+  <input type="text" name="password" required>
 	
   <input type="submit">
 
@@ -19,6 +25,11 @@
 <p>
 <a href="/">home</a>
 </p>
-<a href="/new_profile">Why don't you write a profile?</a>
+ 
+ <% if  session[:user_id] = nil %>
 
+    
+
+ <a href="/new_profile">Why don't you write a profile?</a>
+ <% end %>
 </body>

@@ -4,7 +4,7 @@
  	font-family: futura; margin-top: auto; margin-bottom: auto; padding-top: 25px;   }
 
 #blah{
-	background: linear-gradient(to left, blue,  #5FBDCE);
+	background: linear-gradient(to right, #5EC4CD,  #35C0DE);
 		
 	}
 
@@ -13,7 +13,7 @@ form{
 	}
 
 #top{
-	background: linear-gradient(to right, #FF9B40, #C66800); height: 25%; border-radius: 15px ;
+	background: linear-gradient(to right, #028E9B, #1E6D74); height: 25%; border-radius: 15px ;
 	}
 
 #centered{
@@ -21,4 +21,5 @@ form{
 	font-size: 18px; padding-left: 25px; background: linear-gradient(to right, #5EC4CD ,#015367); box-shadow: 1px 1px 1px #888888;font-weight: bolder ;
 		 }
 
-a{font-size:20px; font-weight: bolder; color: black;}		 
+a#top{font-size:20px; font-weight: bolder; color: black;}	
+

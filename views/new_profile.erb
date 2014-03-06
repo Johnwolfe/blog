@@ -1,4 +1,12 @@
-<h1 id="top">Write your Profile</h1>
+<h1 id="name">  
+	<div id="top">
+		<p ><a href="/">Fake Twitter</a>
+		</p>
+		
+		Write your Profile <%=current_user.email%>
+	</div>
+</h1>
+
 <body id="blah">
 <hr>
 
@@ -20,7 +28,7 @@
 		<label for="life_story">Something about you</label>
 	</p>
 	<p>
-		<textarea name="[profile]life_story" id="life_story" placeholder="tell us about yourself..."  cols="30" rows="5"></textarea>
+		<textarea name="[profile]life_story" id="life_story" placeholder="tell us about yourself..."  cols="30" rows="5" required></textarea>
 	</p>
 	<p>
 		<input type="submit" >
