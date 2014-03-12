@@ -55,29 +55,32 @@
 	</div>
 	<% User.all.each do |users| %>
 		<div id ="list_post">
-		<p id="user_post">
-			
-			All posts by <%=users.email %>
-			
-		<% users.posts.order("created_at DESC").each do |posts| %>
-			
-			<li >
-				<b>
-					<%= posts.title  %>
-				</b>
-				<p>
-					<%=posts.body %>
-				</p>
-				<p>
-					<small>
-						<%=posts.created_at.strftime(" %m/%d/%Y") 
-						%>
-					</small>
-				</p>
-			</li>
+			<p id="user_post">
+				<% if users.posts.first != nil %>
+						All posts by <%=users.email %>
+						
+					<% users.posts.order("created_at DESC").each do |posts| %>
+						
+						<li >
+							<b>
+								<%= posts.title  %>
+							</b>
+							<p>
+								<%=posts.body %>
+							</p>
+							<p>
+								<small>
+									<%=posts.created_at.strftime(" %m/%d/%Y") 
+									%>
+								</small>
+							</p>
+						</li>
 
-		<% end %>
-		</p>
+					<% end %>
+					
+					
+				<% end %>
+			</p>
 		</div>
 	<% end %>	
 

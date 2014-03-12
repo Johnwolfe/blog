@@ -65,7 +65,7 @@ post '/create_user' do
 end    
 
 get '/new_user' do
- 
+ session[:user_id] == nil
   erb :new_user
 end 
 

@@ -11,7 +11,14 @@ class User < ActiveRecord::Base
 		  end 
 		
 	end
-
+ 
+ 	def has_posts
+		if self.posts.first != nil
+			return 1
+		else 
+		 return 0
+		end 
+	end	 
 end
 
 class Profile < ActiveRecord::Base
@@ -22,7 +29,10 @@ class Post < ActiveRecord::Base
 	belongs_to :user
 
 	def has_posts
-		if User.posts.exists?
+		if self.posts.exists?
+			return 1
+		else 
+		 return 0	
 
 		end
 		
