@@ -1,12 +1,12 @@
-<h1 id="name">  
-	<div id="top">
+<h1 id="top">  
+	<div id="name">
 		<p ><a href="/">Fake Twitter</a></p>
 
 		New User
 	</div>	
 </h1>
-<body id="blah">
-	
+<body id="blah"> 
+	<% session[:user_id] = nil %>
 
 <hr>
 <form method="POST" action="/create_user" >
@@ -26,7 +26,7 @@
 <a href="/">home</a>
 </p>
  
- <% if  session[:user_id] = nil %>
+ <% if  session[:user_id] != nil %>
 
     
 

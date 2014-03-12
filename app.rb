@@ -45,6 +45,7 @@ post "/sign_in" do
 end        
 
 post '/create_user' do 
+    
     if params[:email] && params[:password]
 
       @user = User.create( email: params[:email], password: params[:password])
@@ -56,11 +57,11 @@ post '/create_user' do
         redirect to("/new_user")  
       
       end
-    
+      
     else
       redirect to("/new_user")   
-
-    end  
+    end
+    
 end    
 
 get '/new_user' do

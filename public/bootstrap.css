@@ -2082,8 +2082,8 @@ fieldset[disabled] .btn-default.active {
 }
 .btn-primary {
   color: #fff;
-  background-color: #428bca;
-  border-color: #357ebd;
+  background-color: #1D7373;
+  border-color: #006363;
 }
 .btn-primary:hover,
 .btn-primary:focus,
@@ -4429,7 +4429,7 @@ a.thumbnail.active {
   padding: 15px;
   margin-bottom: 20px;
   border: 1px solid transparent;
-  border-radius: 4px;
+  border-radius: 4px; z-index: 1;
 }
 .alert h4 {
   margin-top: 0;
